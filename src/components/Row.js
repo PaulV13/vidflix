@@ -219,16 +219,9 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
             fadeNext &&
             (cantidadImagenesView === 3 || cantidadImagenesView === 6)
           ) {
-            if (cantidadImagenesView === 3) {
-              for (let i = 0; i <= cantidadImagenesView / 2; i++) {
-                const pelicula = peliculas[i];
-                fragmentPeliculas.appendChild(pelicula);
-              }
-            } else if (cantidadImagenesView === 6) {
-              for (let i = 0; i <= 1; i++) {
-                const pelicula = peliculas[i];
-                fragmentPeliculas.appendChild(pelicula);
-              }
+            for (let i = 0; i <= cantidadImagenesView / 2; i++) {
+              const pelicula = peliculas[i];
+              fragmentPeliculas.appendChild(pelicula);
             }
           } else {
             for (let i = 0; i <= cantidadImagenesView - 1; i++) {
@@ -272,12 +265,15 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
       }
     });
 
+    sliderContent.current.style.transform = `translate3d(-${widthMovie}%,0,0)`;
+
     if (indicadorActivo.previousSibling) {
       indicadorActivo.previousSibling.classList.add("active");
       indicadorActivo.classList.remove("active");
       if (
         indicadorActivo.previousSibling.previousSibling === null &&
-        fadePrev
+        fadePrev &&
+        (cantidadImagenesView === 3 || cantidadImagenesView === 6)
       ) {
         if (cantidadImagenesView === 3) {
           sliderContent.current.style.transform = `translate3d(-${
@@ -290,13 +286,10 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
         }
         setFadeNext(true);
         setFadePrev(false);
-      } else {
-        sliderContent.current.style.transform = `translate3d(-${widthMovie}%,0,0)`;
       }
     } else {
       ultimoIndicador.classList.add("active");
       indicadorActivo.classList.remove("active");
-      sliderContent.current.style.transform = `translate3d(-${widthMovie}%,0,0)`;
       setFadePrev(true);
       setFadeNext(false);
     }
@@ -315,22 +308,12 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
       if (indicadorActivo.previousSibling) {
         if (
           indicadorActivo.previousSibling.previousSibling === null &&
-          fadePrev
+          fadePrev &&
+          (cantidadImagenesView === 3 || cantidadImagenesView === 6)
         ) {
-          if (cantidadImagenesView === 3) {
-            for (
-              let i = totalImagenes - (cantidadImagenesView - 1);
-              i <= totalImagenes - 1;
-              i++
-            ) {
-              const pelicula = peliculas[i];
-              fragmentPeliculas.appendChild(pelicula);
-            }
-          } else {
-            for (let i = totalImagenes - 2; i <= totalImagenes - 1; i++) {
-              const pelicula = peliculas[i];
-              fragmentPeliculas.appendChild(pelicula);
-            }
+          for (let i = totalImagenes - 2; i <= totalImagenes - 1; i++) {
+            const pelicula = peliculas[i];
+            fragmentPeliculas.appendChild(pelicula);
           }
         } else {
           for (

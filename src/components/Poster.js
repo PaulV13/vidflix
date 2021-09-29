@@ -5,7 +5,6 @@ import Button from "../components/Button";
 
 import iconAdd from "../assets/icon_add.png";
 import iconPlay from "../assets/icon_play.png";
-import iconDown from "../assets/icon_down.png";
 
 import "./Poster.css";
 
