@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "../axios";
 import requests from "../Requests";
 import "./Banner.css";
 
 function Banner() {
-  const [movie, setMovie] = useState({
-    backdrop_path: null,
-  });
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     async function fecthData() {
@@ -32,8 +30,9 @@ function Banner() {
       style={{
         backgroundSize: "cover",
         backgroundImage: `${
-          movie.backdrop_path &&
-          `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`
+          movie
+            ? `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`
+            : `url("")`
         }`,
         backgroundPosition: "center center",
       }}

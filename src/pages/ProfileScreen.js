@@ -1,4 +1,3 @@
-import React from "react";
 import Nav from "../components/Nav";
 import { useSelector } from "react-redux";
 import { auth } from "../firebase";

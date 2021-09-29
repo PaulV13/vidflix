@@ -1,0 +1,88 @@
+.previewModal--wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: scroll-position;
+  box-sizing: border-box;
+}
+
+.card{
+  will-change: transform;
+  position: absolute;
+  color: #fff;
+  background-color: transparent;
+  font-size: 16px;
+  z-index: 2; 
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
+  opacity: 0;
+}
+
+.card_img_container .videoMerchPlayer--boxart-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-top: 56.3925%;
+}
+
+.card_img_container .previewModal--boxart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.card_img_container {
+  position: relative;
+  background-color: #000;
+  cursor: pointer;
+}
+
+.card.mini-modal {
+  opacity: 0;
+  top: -9999px; 
+  left: -9999px; 
+}
+
+.card_poster-hover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card_info {
+  padding: 10px;
+  color: white;
+  background-color: #181818;
+  transform: none;
+  position: relative;
+  opacity: 1;
+}
+
+.card_info_icons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.card_info_title, .card_info_description{
+  margin: 10px 0;
+}
+
+.card_icons_izq, .card_info_der {
+  display: flex;
+  align-items: center;
+}
+
+.card_info_title {
+  font-size: 24px;
+}
+
+.card_info_description {
+  font-size: 14px;
+}

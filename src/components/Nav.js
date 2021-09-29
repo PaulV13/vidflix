@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import netflix_logo from "../assets/netflix_logo.png";

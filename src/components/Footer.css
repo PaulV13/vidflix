@@ -1,0 +1,16 @@
+.footer{
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social-icon {
+  display: flex;
+}
+
+.footer-social-icon img {
+  width: 32px;
+  height: 32px;
+  margin: 10px;
+}

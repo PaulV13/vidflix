@@ -1,0 +1,76 @@
+.icon {
+  display: block;
+  width: 100%;
+}
+
+.button{
+  width: 32px;
+  height: 32px;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid rgb(150, 150, 150);
+  border-radius: 50%;
+}
+
+.button:hover{
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.button_play {
+  width: 32px;
+  height: 32px;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid rgb(216, 216, 216);
+  border-radius: 50%;
+  background: rgb(216, 216, 216);
+}
+
+.button_play:hover {
+  border: 2px solid rgb(172, 172, 172);
+  background: rgb(172, 172, 172);
+}
+
+
+@media screen and (min-width: 1400px) {
+  .button_play {
+    width: 42px;
+    height: 42px;
+  }
+  .button{
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1099px) {
+  .button_play {
+    width: 36px;
+    height: 36px;
+  }
+  .button{
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1399px) {
+  .button_play {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 799px){
+  .button_play {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .button_play {
+    width: 32px;
+    height: 32px;
+  }
+}
