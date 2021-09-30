@@ -102,7 +102,14 @@ function Card() {
             {movie ? movie.movie.title : "TITULO"}
           </h1>
           <p className="card_info_description">
-            {movie ? movie.movie.overview : "DESCRIPCION"}
+            {movie.movie.genres.map((genre) => {
+              return (
+                <div className="card_info_description_genres">
+                  <span className="card_info_separetor"></span>
+                  <div className="card_info_genre">{genre}</div>
+                </div>
+              );
+            })}
           </p>
         </div>
       </div>

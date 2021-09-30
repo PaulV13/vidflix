@@ -1,11 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "../axios";
-import {
-  showAction,
-  positionAction,
-  movieAction,
-  showPosterAction,
-} from "../redux/user/actions";
+import { showAction, positionAction, movieAction } from "../redux/user/actions";
 import { useDispatch } from "react-redux";
 import SliderControl from "../components/SliderControl";
 
@@ -31,6 +26,10 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
   const [showPrevArrow, setShowPrevArrow] = useState(false);
   const [cantidadImagenesView, setCantidadImagenesView] = useState(0);
   const totalImagenes = 20;
+  const [genresData, setGenresData] = useState([]);
+
+  const urlGenres =
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=cc79c90541ab5330f3dca424a5b1b84a&language=en-US";
 
   useEffect(() => {
     async function fetchData() {
@@ -75,7 +74,25 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
     paginator.current.children[0].classList.add("active");
   }, [widthDocument]);
 
+  useEffect(() => {
+    async function fetchGenres() {
+      const request = await axios.get(urlGenres);
+      setGenresData(request.data.genres);
+    }
+    fetchGenres();
+  }, [urlGenres]);
+
   const mouseEnter = ({ movie, isLargeRow, e }) => {
+    const genresName = [];
+
+    for (let i = 0; i < movie.genre_ids.length; i++) {
+      for (let j = 0; j < genresData.length; j++) {
+        if (movie.genre_ids[i] === genresData[j].id) {
+          genresName.push(genresData[j].name);
+        }
+      }
+    }
+
     setDelayHandler(
       setTimeout(() => {
         const elemento = e.target;
@@ -134,15 +151,12 @@ function Row({ title, classNameOriginals, fetchUrl, isLargeRow = false }) {
               overview: movie.overview,
               backdrop_path: movie.backdrop_path,
               poster_path: movie.poster_path,
+              genres: genresName,
             },
           })
         );
 
-        if (isLargeRow) {
-          dispatch(showPosterAction(true));
-        } else {
-          dispatch(showAction(true));
-        }
+        dispatch(showAction(true));
       }, 800)
     );
   };

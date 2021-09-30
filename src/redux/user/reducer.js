@@ -3,7 +3,6 @@ const initialState = {
   movie: null,
   position: null,
   show: false,
-  showPoster: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,11 +31,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         show: action.payload,
-      };
-    case "showPosterAction":
-      return {
-        ...state,
-        showPoster: action.payload,
       };
     default:
       return state;

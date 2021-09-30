@@ -3,7 +3,6 @@ const LOGOUT_ACTION = "logout";
 const MOVIE_ACTION = "movieAction";
 const POSITION_ACTION = "positionAction";
 const SHOW_ACTION = "showAction";
-const SHOWPOSTER_ACTION = "showPosterAction";
 
 const login = (user) => {
   return {
@@ -40,18 +39,4 @@ const showAction = (show) => {
   };
 };
 
-const showPosterAction = (showPoster) => {
-  return {
-    type: SHOWPOSTER_ACTION,
-    payload: showPoster,
-  };
-};
-
-export {
-  login,
-  logout,
-  movieAction,
-  positionAction,
-  showAction,
-  showPosterAction,
-};
+export { login, logout, movieAction, positionAction, showAction };
